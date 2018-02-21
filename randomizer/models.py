@@ -10,7 +10,7 @@ def user_directory_path(instance, filename):
 class Game(models.Model):
     name = models.CharField(max_length=50, default='Game')
     speed = models.ForeignKey(Speed, on_delete=models.CASCADE)
-    length = models.ForeignKey(Length, on_delete=models.CASCADE)
+    time = models.ForeignKey(Time, on_delete=models.CASCADE)
     logo = models.ImageField(upload_to=user_directory_path)
 
 
@@ -22,7 +22,7 @@ class Speed(models.Model):
     name = models.CharField(max_length=20, default='Normal')
 
 
-class Length(models.Model):
+class Time(models.Model):
     name = models.IntegerField(default=0)
 
 
