@@ -8,6 +8,8 @@ Ce fichier contient les fonctions principales pour le programme d'aléa pour le
 choix d'un jeu parmi une liste pré-remplie à la main dans models.py.
 """
 
+from main.models import *
+
 
 def getRequestedGames(speed, length, players):
     """Retourne une liste de jeu compatible avec les critères en entrée.
