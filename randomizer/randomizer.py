@@ -9,7 +9,7 @@ choix d'un jeu parmi une liste pré-remplie à la main dans models.py.
 """
 
 import random
-from main.models import *
+from randomizer.models import *
 
 
 def getRequestedGames(speed, time, players):
@@ -23,9 +23,9 @@ def getRequestedGames(speed, time, players):
 
     if players is not None:
         for elm in players:
-            games = GameByPlayer.objects.filter(player=elm).select_related(
-                'game')
-            requested_games = requested_games | games
+            games = GameByPlayer.objects.filter(player=Player.objects.get(
+                name=elm)).select_related('game')
+            requested_games = requested_games & games
 
     if speed is not None:
         requested_games.filter(speed=Speed.objects.get(name=speed))
